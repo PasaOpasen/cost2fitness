@@ -13,7 +13,7 @@ def plot_scores(scores, names = None, kind = 'beside', save_as = None):
 
     xlabels = [str(i+1) for i in range(dim)] if dim * pipes < 100 else ''*dim
     titles = names if not (names is None) else ''*pipes
-    print(xlabels)
+
     if kind == 'beside':
         fig = plt.figure()
         ax = fig.add_axes([0,0,1,1])
@@ -28,8 +28,6 @@ def plot_scores(scores, names = None, kind = 'beside', save_as = None):
             ax.legend(labels=titles)
 
     elif kind == 'under':
-        
-        
         
         fig, axes = plt.subplots(pipes, figsize=(2*pipes, 5))
         cycle = plt.rcParams['axes.prop_cycle'].by_key()['color']

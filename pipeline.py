@@ -1,6 +1,8 @@
 
+from collections.abc import Iterable
 import numpy as np
 
+from transformers import BaseTransformer, ReverseByAverage, Min2Zero, Min2Value, AntiMax, AntiMaxPercent, ProbabilityView
 from bar_plots import plot_scores
 
 
@@ -8,10 +10,12 @@ from bar_plots import plot_scores
 class Pipeline:
 
     def __init__(self, transformers):
+        
+        assert(isinstance(transformers, Iterable)), "transformers should be iterable object (for example, list)"
+        assert(len(transformers) > 0), "there should be at least 1 transformer"
 
-        assert(len(transformers) > 0), f"there should be at least 1 transformer"
-
-        # check type
+        for tf in transformers:
+            assert (issubclass(type(tf), BaseTransformer)), "transformer should be subclass of BaseTransformer"
 
         self.transformers = transformers
     
@@ -29,10 +33,23 @@ class Pipeline:
         
         arr = self.transform(example_array, return_all_steps=True)
 
-        plot_scores(arr, 'at start' + [tf.name for tf in self.transformers], kind, save_as)
+        plot_scores(arr, ['at start'] + [tf.name for tf in self.transformers], kind, save_as)
 
 
 
 
+if __name__ == '__main__':
+
+
+    pipe = Pipeline([
+        #ReverseByAverage(),
+        #Min2Zero(),
+        Min2Value(3),
+        #AntiMax(),
+        AntiMaxPercent(0.2),
+        ProbabilityView()
+        ])
+
+    pipe.plot_on_example(np.array([10, 2, 3, 4, 5, 11, 12, 10, 30, 1]), kind = 'under')
 
 
