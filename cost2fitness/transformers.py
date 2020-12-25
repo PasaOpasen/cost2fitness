@@ -79,3 +79,37 @@ class ProbabilityView(BaseTransformer):
         return array/np.sum(array)   
 
 
+class SimplestReverse(BaseTransformer):
+
+    def __init__(self):
+        self.name = "Simplest reverse"
+    
+    def transform(self, array):
+        return 1/array
+
+class AlwaysOnes(BaseTransformer):
+    
+    def __init__(self):
+        self.name = "Always ones"
+    
+    def transform(self, array):
+        return np.ones_like(array)
+
+
+class NewAvgByMult(BaseTransformer):
+    
+    def __init__(self, new_average):
+        self.name = f"Multiple new average = {new_average}"
+        self.avg = new_average
+    
+    def transform(self, array):
+        return array * (self.avg/np.mean(array))
+
+class NewAvgByShift(BaseTransformer):
+    
+    def __init__(self, new_average):
+        self.name = f"Shifted new average = {new_average}"
+        self.avg = new_average
+    
+    def transform(self, array):
+        return array + (self.avg - np.mean(array))
