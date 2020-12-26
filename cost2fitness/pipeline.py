@@ -2,8 +2,8 @@
 from collections.abc import Iterable
 import numpy as np
 
-from transformers import BaseTransformer, ReverseByAverage, Min2Zero, Min2Value, AntiMax, AntiMaxPercent, ProbabilityView
-from bar_plots import plot_scores
+from .transformers import BaseTransformer, ReverseByAverage, Min2Zero, Min2Value, AntiMax, AntiMaxPercent, ProbabilityView
+from .bar_plots import plot_scores
 
 
 
