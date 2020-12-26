@@ -5,6 +5,21 @@ import matplotlib.pyplot as plt
 
 
 def plot_scores(scores, names = None, kind = 'beside', save_as = None):
+    """
+    Plot results of transformation
+
+    Parameters
+    ----------
+    scores : 2D numpy array
+       2D numpy array with structure [start_values, first_transform(start_values), second_transform(first_transform), ...], where each object is 1D-array of scores (values/costs, fitnesses).
+    names : None/string list, optional
+        Names for each step for plot labels. The default is None.
+    kind : str, optional
+        for 'beside' each new column will be beside previous; for 'under' there will be new plot under previous. The default is 'beside'.
+    save_as : None/str, optional
+        File path to save the plot. The default is None.
+
+    """
     
     pipes, dim = scores.shape
 

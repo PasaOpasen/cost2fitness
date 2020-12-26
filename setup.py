@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/PasaOpasen/cost2fitness",
-    keywords=[ 'optimization', 'evolutionary algorithms', 'fast', 'easy', 'evolution', 'generator', 'simple', 'converter', 'min2max', 'max2min'],
+    keywords=[ 'optimization', 'evolutionary algorithms', 'fast', 'easy', 'evolution', 'generator', 'simple', 'converter', 'min2max', 'max2min', 'barplots'],
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

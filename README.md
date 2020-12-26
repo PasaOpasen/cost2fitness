@@ -95,9 +95,36 @@ pipe.transform(arr_of_scores, return_all_steps= False)
 
 ## How to plot
 
+There is `plot_scores` function for plotting transformation process results. It has arguments:
+
+* `scores` : 2D numpy array
+       2D numpy array with structure `[start_values, first_transform(start_values), second_transform(first_transform), ...]`, where each object is 1D-array of scores (values/costs/fitnesses).
+* `names` : `None`/string list, optional
+        Names for each step for plot labels. The default is `None`.
+* `kind` : str, optional
+        for **'beside'** each new column will be beside previous; for **'under'** there will be new plot under previous. The default is 'beside'.
+* `save_as` : `None`/str, optional
+        File path to save the plot. The default is `None`.
+
 ## Examples
 
 ### Each transformer
 
-### Pipeline
+[Code](tests/tf_for_readme.py)
 
+![](tests/Simplest%20reverse%20example.png)
+![](tests/Shifted%20new%20average%20=%205%20example.png)
+![](tests/Reverse%20by%20average%20example.png)
+![](tests/Prob.%20view%20example.png)
+![](tests/Multiple%20new%20average%20=%205%20example.png)
+![](tests/Min%20to%20zero%20example.png)
+![](tests/Min%20to%20value%20=%202%20example.png)
+![](tests/AntiMax%20with%20percent%20=%200.5%20example.png)
+![](tests/AntiMax%20example.png)
+![](tests/Always%20ones%20example.png)
+
+### Pipeline
+[Code](tests/simple_pipe.py)
+
+![](tests/pipe_example_beside.png)
+![](tests/pipe_example_under.png)
