@@ -1,5 +1,8 @@
 [![PyPI
 version](https://badge.fury.io/py/cost2fitness.svg)](https://pypi.org/project/cost2fitness/)
+[![Downloads](https://pepy.tech/badge/cost2fitness)](https://pepy.tech/project/cost2fitness)
+[![Downloads](https://pepy.tech/badge/cost2fitness/month)](https://pepy.tech/project/cost2fitness)
+[![Downloads](https://pepy.tech/badge/cost2fitness/week)](https://pepy.tech/project/cost2fitness)
 
 # cost2fitness
 
