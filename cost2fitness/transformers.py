@@ -78,6 +78,21 @@ class ProbabilityView(BaseTransformer):
     def transform(self, array):
         return array/np.sum(array)   
 
+class Softmax(BaseTransformer):
+    def __init__(self):
+        self.name = 'Softmax'
+    
+    def transform(self, array):
+        arr = np.exp(array)
+        return arr/np.sum(arr)   
+
+class Relu(BaseTransformer):
+    def __init__(self):
+        self.name = 'Relu'
+    
+    def transform(self, array):
+        return np.maximum(0, array) 
+
 
 class SimplestReverse(BaseTransformer):
 

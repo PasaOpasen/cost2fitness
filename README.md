@@ -40,6 +40,8 @@ Checklist:
 * `Min2Zero`, 
 * `Min2Value(value)`, 
 * `ProbabilityView` (converts data to probabilities), 
+* `Softmax`,
+* `Relu`,
 * `SimplestReverse`, 
 * `AlwaysOnes` (returns array of ones), 
 * `NewAvgByMult(new_average)`,
