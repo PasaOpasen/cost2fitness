@@ -47,6 +47,7 @@ pipe = Pl([
             Softmax()
         ])
 
+# that pipe is equal to this Keras model
 keras_model = Sequential()
 keras_model.add(Dense(10, input_shape = (input_size,), activation = 'relu'))
 keras_model.add(Dense(10, activation = 'relu'))
@@ -63,18 +64,29 @@ keras_model.add(Dense(6, activation = 'softmax'))
 
 keras_model.summary()
 
-shapes = pipe.get_shapes()
-shapes = [arr.shape for arr in keras_model.get_weights()]
 
+shapes = pipe.get_shapes() # get array of shapes for pipe model
+shapes = [arr.shape for arr in keras_model.get_weights()] # equal way for keras model
 
+# count total weights
 total_weights = pipe.total_weights()
 
+# just random weights for test
 random_weights = np.random.random(total_weights)
 
+# convert random_weights (1D-vector) to list of arrays with needed shapes  
 list_of_weights = arr_to_weigths(random_weights, shapes)
+
+# set weights
 pipe.set_weights(list_of_weights)
 keras_model.set_weights(list_of_weights)
 
+
+#
+# Running
+#
+
+# just random input
 arr = np.random.random(input_size)
 
 

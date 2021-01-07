@@ -169,7 +169,7 @@ class Bias(BaseTransformer):
         self.get_shape = lambda: [(bias_len,)]
 
         if bias_array is None:
-            self.bias = np.random.random(bias_len)
+            self.bias = np.random.uniform(-1, 1, bias_len)
         else:
             assert (bias_len == bias_array.size)
             self.bias = bias_array
@@ -191,7 +191,7 @@ class MatrixDot(BaseTransformer):
         self.get_shape = lambda: [shape]
 
         if matrix_array is None:
-            self.matrix = np.random.random(shape)
+            self.matrix = np.random.uniform(-1, 1, shape)
         else:
             assert (shape == matrix_array.shape)
             self.matrix = matrix_array
