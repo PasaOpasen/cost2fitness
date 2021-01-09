@@ -125,7 +125,7 @@ class Softmax(BaseTransformer):
         self.name = 'softmax'
     
     def transform(self, array):
-        arr = np.exp(array)
+        arr = np.exp(array-array.max())
         return arr/np.sum(arr)   
 
 class Relu(BaseTransformer):
