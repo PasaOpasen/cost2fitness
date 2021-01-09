@@ -48,6 +48,7 @@ Checklist:
 * `AlwaysOnes` (returns array of ones), 
 * `NewAvgByMult(new_average)`,
 * `NewAvgByShift(new_average)`
+* `Divider(divider_number_or_array)` (divides array on number or array, useful for fixed start normalization)
 
 U can create your transformer using simple logic from [file](cost2fitness/transformers.py).
 

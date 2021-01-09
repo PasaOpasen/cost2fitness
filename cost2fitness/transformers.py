@@ -109,6 +109,20 @@ class NewAvgByShift(BaseTransformer):
         return array + (self.avg - np.mean(array))
 
 
+
+class Divider(BaseTransformer):
+
+    def __init__(self, divider_number_or_array):
+        self.name = "Divider"
+
+        assert (type(divider_number_or_array) in (int, float, np.ndarray)), "divider should be number or 1D array!"
+
+        self.arr = divider_number_or_array
+    
+    def transform(self, array):
+        return array / self.arr
+
+
 #
 # activations
 #
