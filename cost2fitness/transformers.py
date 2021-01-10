@@ -123,6 +123,15 @@ class Divider(BaseTransformer):
         return array / self.arr
 
 
+class Argmax(BaseTransformer):
+
+    def __init__(self):
+        self.name = "argmax"
+    
+    def transform(self, array):
+        return np.argmax(array)
+
+
 #
 # activations
 #

@@ -49,6 +49,7 @@ Checklist:
 * `NewAvgByMult(new_average)`,
 * `NewAvgByShift(new_average)`
 * `Divider(divider_number_or_array)` (divides array on number or array, useful for fixed start normalization)
+* `Argmax` (returns position of maximum element in array)
 
 U can create your transformer using simple logic from [file](cost2fitness/transformers.py).
 
@@ -139,6 +140,9 @@ There is `plot_scores` function for plotting transformation process results. It 
 
 
 ## Neural net tools
+
+I have made basic neural network tools here because it's very necessary to use simple networks with some **reinforcement learning** tasks, but common packages like [Keras](https://keras.io) work extremely slow if u need just prediction (forward propagation) only for 1 sample but many times. So it will be faster to use simple numpy-based packages for these cases.
+
 
 ### Layers
 
