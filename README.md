@@ -50,6 +50,7 @@ Checklist:
 * `NewAvgByShift(new_average)`
 * `Divider(divider_number_or_array)` (divides array on number or array, useful for fixed start normalization)
 * `Argmax` (returns position of maximum element in array)
+* `Prob2Class(threshold = 0.5)` (to convert probabilities to classes 0/1)
 
 U can create your transformer using simple logic from [file](cost2fitness/transformers.py).
 
@@ -153,6 +154,10 @@ It was not so difficult to use this transformers logic for creating neural netwo
   * `Relu`
   * `Sigmoid`
   * `Tanh`
+  * `Softplus`
+  * `Softsign`
+  * `Elu(alpha)`
+  * `Selu(alpha, scale)`
 
 * **Dense layers tools**:
   * `Bias(bias_len, bias_array = None)` -- to add bias with length `bias_len`. If `bias_array` is `None`, uses random bias

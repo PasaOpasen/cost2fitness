@@ -132,16 +132,28 @@ class Argmax(BaseTransformer):
         return np.argmax(array)
 
 
-#
-# activations
-#
+class Prob2Class(BaseTransformer):
+
+    def __init__(self, threshold = 0.5):
+        self.name = "probability to class"
+        self.threshold = threshold
+    
+    def transform(self, array):
+        return np.int8(array > self.threshold)
+
 
 class ProbabilityView(BaseTransformer):
     def __init__(self):
         self.name = 'Prob. view'
     
     def transform(self, array):
-        return array/np.sum(array)   
+        return array/np.sum(array)  
+
+
+#
+# activations
+#
+
 
 class Softmax(BaseTransformer):
     def __init__(self):
@@ -176,7 +188,42 @@ class Tanh(BaseTransformer):
         return 2*self.sigmoid.transform(2*array) - 1 
 
 
+class Softplus(BaseTransformer):
+    def __init__(self):
+        self.name = 'softplus'
+    
+    def transform(self, array):
+        return np.log(np.exp(array)+1)
 
+class Softsign(BaseTransformer):
+    def __init__(self):
+        self.name = 'softsign'
+    
+    def transform(self, array):
+        return array / (np.abs(array) + 1)
+
+
+class Elu(BaseTransformer):
+    def __init__(self, alpha = 1.0):
+        self.name = 'elu'
+        self.alpha = alpha
+    
+    def transform(self, array):
+        answer = array.copy()
+        mask = answer < 0
+        answer[mask] = self.alpha * ( np.exp(answer[mask]) - 1 )
+        return answer
+
+
+
+class Selu(BaseTransformer):
+    def __init__(self, alpha=1.6732632, scale=1.05070098):
+        self.name = 'selu'
+        self.scale = scale
+        self.elu = Elu(alpha)
+    
+    def transform(self, array):
+        return self.scale * self.elu.transform(array)
 
 
 #
