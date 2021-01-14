@@ -150,6 +150,14 @@ class ProbabilityView(BaseTransformer):
         return array/np.sum(array)  
 
 
+class ToNumber(BaseTransformer):
+    def __init__(self):
+        self.name = 'to one number'
+    
+    def transform(self, array):
+        return array[0] 
+
+
 #
 # activations
 #

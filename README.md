@@ -51,6 +51,7 @@ Checklist:
 * `Divider(divider_number_or_array)` (divides array on number or array, useful for fixed start normalization)
 * `Argmax` (returns position of maximum element in array)
 * `Prob2Class(threshold = 0.5)` (to convert probabilities to classes 0/1)
+* `ToNumber` (converts array to one number by getting first element)
 
 U can create your transformer using simple logic from [file](cost2fitness/transformers.py).
 
