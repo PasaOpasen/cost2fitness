@@ -178,6 +178,16 @@ class Relu(BaseTransformer):
     def transform(self, array):
         return np.maximum(0, array) 
 
+class LeakyRelu(BaseTransformer):
+    def __init__(self, alpha = 0.01):
+        self.name = 'leaky_relu'
+        self.alpha = alpha
+    
+    def transform(self, array):
+        r = arr.copy()
+        r[r<0] *= self.alpha
+        return r
+
 class Sigmoid(BaseTransformer):
     def __init__(self):
         self.name = 'sigmoid'
@@ -190,11 +200,28 @@ class Tanh(BaseTransformer):
     def __init__(self):
         self.name = 'tanh'
 
+        #self.sigmoid = Sigmoid()
+    
+    def transform(self, array):
+        return np.tanh(array) #2*self.sigmoid.transform(2*array) - 1 
+
+
+class ArcTan(BaseTransformer):
+    def __init__(self):
+        self.name = 'arctan'
+    
+    def transform(self, array):
+        return np.arctan2(array)
+
+class Swish(BaseTransformer):
+
+    def __init__(self, beta = 0.25):
+        self.name = 'swish'
+        self.beta = beta
         self.sigmoid = Sigmoid()
     
     def transform(self, array):
-        return 2*self.sigmoid.transform(2*array) - 1 
-
+        return array*self.sigmoid.transform(array*self.beta)
 
 class Softplus(BaseTransformer):
     def __init__(self):

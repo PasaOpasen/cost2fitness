@@ -153,8 +153,11 @@ It was not so difficult to use this transformers logic for creating neural netwo
 * **Activations**:
   * `Softmax`
   * `Relu`
+  * `LeakyRelu(alpha = 0.01)`
   * `Sigmoid`
   * `Tanh`
+  * `ArcTan`
+  * `Swish(beta = 0.25)`
   * `Softplus`
   * `Softsign`
   * `Elu(alpha)`
